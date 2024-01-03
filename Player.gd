@@ -7,6 +7,7 @@ var is_transitioning = false
 
 @onready var explosion_audio = $ExplosionAudio
 @onready var success_audio = $SuccessAudio
+@onready var rocket_audio = $RocketAudio
 
 func _ready():  
 	pass # Replace with function body.
@@ -15,6 +16,10 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("boost"):
 		apply_central_force(basis.y * delta * thrust)
+		if rocket_audio.playing == false:
+			rocket_audio.play()
+	else:
+		rocket_audio.stop()
 	if Input.is_action_pressed("rotate_left"):
 		apply_torque(Vector3(.0,.0,torque_thrust * delta))
 	if Input.is_action_pressed("rotate_right"):
