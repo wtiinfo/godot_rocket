@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cq1rqg7180fnn"]
+[gd_scene load_steps=9 format=3 uid="uid://cq1rqg7180fnn"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_wd3cx"]
 [ext_resource type="AudioStream" uid="uid://cchoyfhaspv6q" path="res://Audio/SFX - Death Explosion.ogg" id="2_bhhp2"]
 [ext_resource type="AudioStream" uid="uid://cpwra0cs8d2bw" path="res://Audio/SFX - Success.ogg" id="3_pn116"]
 [ext_resource type="AudioStream" uid="uid://3nf3tedqksyq" path="res://Audio/SFX - Main engine thrust.ogg" id="4_jpvf1"]
+[ext_resource type="PackedScene" uid="uid://cpqawt1ofml3o" path="res://booster_particles.tscn" id="5_gjgak"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6sorf"]
 albedo_color = Color(0.717647, 0.717647, 0, 1)
@@ -41,5 +42,14 @@ stream = ExtResource("3_pn116")
 [node name="RocketAudio" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_jpvf1")
 volume_db = 10.0
+
+[node name="BoosterParticles" parent="." instance=ExtResource("5_gjgak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.096, 0)
+
+[node name="Right_Bosst" parent="." instance=ExtResource("5_gjgak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, -0.9, 0)
+
+[node name="Left_Bosst" parent="." instance=ExtResource("5_gjgak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, -0.9, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
