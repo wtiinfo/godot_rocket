@@ -11,6 +11,8 @@ var is_transitioning = false
 @onready var booster_particles = $BoosterParticles
 @onready var right_bosst = $Right_Bosst
 @onready var left_bosst = $Left_Bosst
+@onready var explosion_particles = $ExplosionParticles
+@onready var success_particles = $SuccessParticles
 
 func _ready():  
 	pass # Replace with function body.
@@ -47,6 +49,7 @@ func _on_body_entered(body):
 		
 func crash_sequence():
 	explosion_audio.play()
+	explosion_particles.emitting = true
 	rocket_audio.stop()
 	booster_particles.emitting = false
 	right_bosst.emitting = false
@@ -59,6 +62,7 @@ func crash_sequence():
 	
 func complete_level(next_level_file: String):
 	success_audio.play()
+	success_particles.emitting = true
 	set_process(false) #para a funcao _process(delta)
 	is_transitioning = true
 	var tween = create_tween()
