@@ -1,10 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://brk5wjne6xdf5"]
+[gd_scene load_steps=6 format=3 uid="uid://brk5wjne6xdf5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0fjh"]
 albedo_color = Color(0, 0.686275, 0.686275, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5crl"]
 albedo_color = Color(0.172549, 1, 0.054902, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pj27c"]
+
+[sub_resource type="Sky" id="Sky_dfuji"]
+sky_material = SubResource("ProceduralSkyMaterial_pj27c")
+
+[sub_resource type="Environment" id="Environment_yf8x7"]
+background_mode = 1
+background_color = Color(0, 0.156, 0.18, 1)
+sky = SubResource("Sky_dfuji")
+ambient_light_source = 3
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="floor" type="CSGBox3D" groups=["Fail"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
@@ -101,3 +114,27 @@ material = SubResource("StandardMaterial3D_p0fjh")
 transform = Transform3D(0.982307, 0.187278, 0, -0.187278, 0.982307, 0, 0, 0, 1, -1.90775, 17.5664, -4.93479)
 size = Vector3(3, 8, 3)
 material = SubResource("StandardMaterial3D_i5crl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.649322, -0.72783, -0.220552, 0.487647, -0.620998, 0.613646, -0.583593, 0.290902, 0.758153, 6.38433, 0, 4.39747)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yf8x7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.0774, -0.637012)
+light_energy = 0.5
+omni_range = 4.44
+omni_attenuation = 0.5
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.63868, 10.0774, -0.637012)
+omni_range = 10.0
+omni_attenuation = 0.5
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.31515, 10.0774, -0.637012)
+omni_range = 10.0
+omni_attenuation = 0.5
