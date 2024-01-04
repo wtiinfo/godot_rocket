@@ -48,7 +48,7 @@ size = Vector3(30, 8, 5)
 material = SubResource("StandardMaterial3D_p0fjh")
 
 [node name="obstacle" type="CSGBox3D" parent="." groups=["Fail"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55383, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27289, 0)
 use_collision = true
 size = Vector3(3, 2, 3)
 material = SubResource("StandardMaterial3D_8jkwv")
