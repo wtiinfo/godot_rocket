@@ -1,5 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ba302lpuiymq1"]
 
+[ext_resource type="PackedScene" uid="uid://brk5wjne6xdf5" path="res://Scenario.tscn" id="1_0s0u6"]
 [ext_resource type="Script" path="res://levels/landingPad.gd" id="1_7qsnr"]
 [ext_resource type="PackedScene" uid="uid://cq1rqg7180fnn" path="res://player.tscn" id="1_dqfgr"]
 
@@ -15,9 +16,6 @@ background_mode = 2
 sky = SubResource("Sky_ujfpk")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0fjh"]
-albedo_color = Color(0, 0.686275, 0.686275, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1moyg"]
 albedo_color = Color(0.956863, 0.521569, 0.384314, 1)
@@ -35,14 +33,10 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.97237, 0.233445, 0, -0.233445, 0.97237, 0, 3.76, 8.455)
+transform = Transform3D(1, 0, 0, 0, 0.97237, 0.233445, 0, -0.233445, 0.97237, 0, 7.425, 9.82)
 top_level = true
 
-[node name="floor" type="CSGBox3D" parent="." groups=["Fail"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
-use_collision = true
-size = Vector3(30, 8, 5)
-material = SubResource("StandardMaterial3D_p0fjh")
+[node name="floor" parent="." instance=ExtResource("1_0s0u6")]
 
 [node name="launchPad" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.40687, 0.168911, 0.0715332)

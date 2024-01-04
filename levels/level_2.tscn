@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://levels/landingPad.gd" id="1_nwhpy"]
 [ext_resource type="PackedScene" uid="uid://cq1rqg7180fnn" path="res://player.tscn" id="2_agtaq"]
+[ext_resource type="PackedScene" uid="uid://brk5wjne6xdf5" path="res://Scenario.tscn" id="3_ysw77"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cjns6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,9 +16,6 @@ background_mode = 2
 sky = SubResource("Sky_ujfpk")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0fjh"]
-albedo_color = Color(0, 0.686275, 0.686275, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8jkwv"]
 albedo_color = Color(1, 0.498039, 1, 1)
@@ -38,14 +36,8 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.97237, 0.233445, 0, -0.233445, 0.97237, 0, 3.76, 8.455)
+transform = Transform3D(1, 0, 0, 0, 0.97237, 0.233445, 0, -0.233445, 0.97237, 0, 7.425, 9.82)
 top_level = true
-
-[node name="floor" type="CSGBox3D" parent="." groups=["Fail"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
-use_collision = true
-size = Vector3(30, 8, 5)
-material = SubResource("StandardMaterial3D_p0fjh")
 
 [node name="obstacle" type="CSGBox3D" parent="." groups=["Fail"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27289, 0)
@@ -69,3 +61,5 @@ file_path = "res://levels/level_3.tscn"
 
 [node name="Player" parent="." instance=ExtResource("2_agtaq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.40687, 1.90519, 0)
+
+[node name="floor2" parent="." instance=ExtResource("3_ysw77")]
